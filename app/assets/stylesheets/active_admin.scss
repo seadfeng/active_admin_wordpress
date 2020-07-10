@@ -1,4 +1,4 @@
-$am-theme-primary: #342e48;
+$am-theme-primary: #00113d;
 @import 'activeadmin_addons/all';
 @import 'activeadmin_addons/material';
 // SASS variable overrides must be declared before loading up Active Admin's styles.
@@ -12,7 +12,7 @@ $am-theme-primary: #342e48;
 
 // Active Admin's got SASS!
 @import "active_admin/mixins";
-@import "active_admin/base";
+// @import "active_admin/base";
 
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
