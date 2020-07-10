@@ -16,6 +16,14 @@ ActiveAdmin.register Blog do
             params[:blog][:admin_user_id] = current_admin_user.id
             super 
         end
+
+        def scoped_collection
+            if current_admin_user.admin?
+                super
+            else
+                end_of_association_chain.where(admin_user_id: current_admin_user.id) 
+            end
+        end
     end
 
     index do
