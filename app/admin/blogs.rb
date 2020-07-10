@@ -5,9 +5,9 @@ ActiveAdmin.register Blog do
 
     active_admin_import  validate: true,
             template_object: ActiveAdminImport::Model.new(
-                hint: I18n.t("active_admin.accounts.import.hint" , default: "CSV : 'User Id','Url','Name','Description','User','Password'\r\n<br /><a href=\"/admin/blogs/import_csv\">DownLoad Demo</a>") 
+                hint: I18n.t("active_admin.accounts.import.hint" , default: "CSV : 'Admin User Id','Url','Name','Description','User','Password'\r\n<br /><a href=\"/admin/blogs/import_csv\">DownLoad Demo</a>") 
             ),
-            headers_rewrites: { :'User Id' => :admin_user_id, :'Url' => :url, :'Name'=> :name, :'Description' => :description, :"User" => :user, :'Password' => :password },
+            headers_rewrites: { :'Admin User Id' => :admin_user_id, :'Url' => :url, :'Name'=> :name, :'Description' => :description, :"User" => :user, :'Password' => :password },
             if: proc { current_admin_user.admin? } 
 
 
@@ -65,7 +65,7 @@ ActiveAdmin.register Blog do
     end
 
     collection_action :import_csv, method: :get do   
-        send_data "User Id,Url,Name,Description,User,Password\r\n1,https://xxxxx.com/,博客名字,备注,admin,admin@123", :disposition => "attachment; filename=blogs.csv", :type => 'text/csv; charset=utf-8; header=present'
+        send_data "Admin User Id,Url,Name,Description,User,Password\r\n1,https://xxxxx.com/,博客名字,备注,admin,admin@123", :disposition => "attachment; filename=blogs.csv", :type => 'text/csv; charset=utf-8; header=present'
     end
 
 end
