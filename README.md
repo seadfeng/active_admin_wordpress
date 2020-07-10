@@ -2,7 +2,6 @@
 
 ## Installation
 
-
 ```bash
 $ bundle install 
 $ rake db:create
