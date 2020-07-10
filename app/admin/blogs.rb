@@ -15,6 +15,9 @@ ActiveAdmin.register Blog do
         column :admin_user   
         column :url     
         column :name    
+        column :login do |source|
+            link_to image_tag("icons/arrows.svg", width: "20", height: "20")  , login_admin_blog_path(source) , target: "_blank" , method: :put , class: ""  
+        end
         column :description     
         column :status    
         column :created_at
