@@ -3,6 +3,12 @@ ActiveAdmin.register Blog do
     menu priority: 10 
     active_admin_paranoia 
 
+    controller do
+        def create  
+            params[:blog][:admin_user_id] = current_admin_user.id
+            super 
+        end
+    end
     index do
         selectable_column
         id_column   
