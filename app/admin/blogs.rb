@@ -17,7 +17,7 @@ ActiveAdmin.register Blog do
     end
 
     
-    filter :admin_user if current_admin_user.admin?
+    filter :admin_user, :if => proc { current_admin_user.admin? }
     filter :url
     filter :name
 
