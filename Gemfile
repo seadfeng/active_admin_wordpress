@@ -56,6 +56,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'activeadmin'
 gem 'activeadmin_addons'
+gem 'active_admin_role'
+gem "active_admin_import" , github: "activeadmin-plugins/active_admin_import"
 
 # Plus integrations with:
 gem 'devise'
