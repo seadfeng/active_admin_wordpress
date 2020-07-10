@@ -8,6 +8,15 @@ GIT
       rchardet (~> 1.6)
       rubyzip (~> 1.2)
 
+GIT
+  remote: https://github.com/seadfeng/active_admin_role.git
+  revision: 91aec6b8c09ba4a55cff1a92c3ee88ed358aa511
+  specs:
+    active_admin_role (0.2.2)
+      activeadmin (>= 1.2.0)
+      cancancan (>= 1.15.0)
+      railties (>= 5.0.0)
+
 GEM
   remote: https://gems.ruby-china.com/
   specs:
@@ -47,10 +56,6 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
-    active_admin_role (0.2.2)
-      activeadmin (>= 1.2.0)
-      cancancan (>= 1.15.0)
-      railties (>= 5.0.0)
     active_material (1.4.2)
     activeadmin (2.7.0)
       arbre (~> 1.2, >= 1.2.1)
@@ -310,7 +315,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_admin_import!
-  active_admin_role
+  active_admin_role!
   activeadmin
   activeadmin_addons
   bootsnap (>= 1.4.2)
