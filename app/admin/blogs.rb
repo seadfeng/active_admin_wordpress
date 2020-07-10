@@ -3,12 +3,21 @@ ActiveAdmin.register Blog do
     menu priority: 10 
     active_admin_paranoia 
 
+    active_admin_import  validate: true,
+            template_object: ActiveAdminImport::Model.new(
+                hint: I18n.t("active_admin.accounts.import.hint" , default: "CSV : 'User Id','Url','Name','Description','User','Password'\r\n<br /><a href=\"/admin/blogs/import_csv\">DownLoad Demo</a>") 
+            ),
+            headers_rewrites: { :'User Id' => :admin_user_id, :'Url' => :url, :'Name'=> :name, :'Description' => :description, :"User" => :user, :'Password' => :password },
+            if: proc { current_admin_user.admin? } 
+
+
     controller do
         def create  
             params[:blog][:admin_user_id] = current_admin_user.id
             super 
         end
     end
+
     index do
         selectable_column
         id_column   
@@ -44,6 +53,10 @@ ActiveAdmin.register Blog do
 
     member_action :login, method: :put do   
         render "admin/blogs/login.html.erb" , locals: { blog_url: resource.url} 
+    end
+
+    collection_action :import_csv, method: :get do   
+        send_data "User Id,Url,Name,Description,User,Password\r\n1,https://xxx.com/,博客名字,备注,admin,admin@123,", :disposition => "attachment; filename=blogs.csv" 
     end
 
 end
