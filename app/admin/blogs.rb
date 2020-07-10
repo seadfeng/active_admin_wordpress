@@ -41,6 +41,7 @@ ActiveAdmin.register Blog do
 
     form do |f|
         f.inputs I18n.t("active_admin.blogs.form" , default: "Blog")  do  
+            f.input :admin_user if current_admin_user.admin?        
             f.input :url       
             f.input :name     
             f.input :user     
@@ -56,7 +57,7 @@ ActiveAdmin.register Blog do
     end
 
     collection_action :import_csv, method: :get do   
-        send_data "User Id,Url,Name,Description,User,Password\r\n1,https://xxx.com/,博客名字,备注,admin,admin@123,", :disposition => "attachment; filename=blogs.csv" 
+        send_data "User Id,Url,Name,Description,User,Password\r\n1,https://xxxxx.com/,博客名字,备注,admin,admin@123", :disposition => "attachment; filename=blogs.csv", :type => 'text/csv; charset=utf-8; header=present'
     end
 
 end
