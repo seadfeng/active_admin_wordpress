@@ -31,10 +31,16 @@ ActiveAdmin.register Blog do
         f.inputs I18n.t("active_admin.blogs.form" , default: "Blog")  do  
             f.input :url       
             f.input :name     
+            f.input :user     
+            f.input :password     
             f.input :description     
         end
         f.actions
     end 
 
+
+    member_action :login, method: :put do   
+        render "admin/blogs/login.html.erb" , locals: { blog_url: resource.url} 
+    end
 
 end
