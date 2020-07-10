@@ -1,6 +1,6 @@
 GIT
-  remote: https://github.com/activeadmin-plugins/active_admin_import.git
-  revision: 07cee9c1163868c60250040e55aa7bb9571e4ec4
+  remote: https://github.com/seadfeng/active_admin_import.git
+  revision: cf98a77fbfea30d8e82602e69f74e171b70d8574
   specs:
     active_admin_import (4.2.0)
       activeadmin (>= 1.0.0.pre2)
@@ -56,6 +56,9 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_admin_paranoia (1.0.11)
+      paranoia (>= 1.0)
+      rails (>= 4.0)
     active_material (1.4.2)
     activeadmin (2.7.0)
       arbre (~> 1.2, >= 1.2.1)
@@ -100,6 +103,9 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    acts_as_paranoid (0.6.3)
+      activerecord (>= 4.2, < 7.0)
+      activesupport (>= 4.2, < 7.0)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     arbre (1.2.1)
@@ -190,6 +196,8 @@ GEM
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    paranoia (2.4.2)
+      activerecord (>= 4.0, < 6.1)
     polyamorous (2.3.2)
       activerecord (>= 5.2.1)
     public_suffix (4.0.5)
@@ -315,9 +323,11 @@ PLATFORMS
 
 DEPENDENCIES
   active_admin_import!
+  active_admin_paranoia
   active_admin_role!
   activeadmin
   activeadmin_addons
+  acts_as_paranoid
   bootsnap (>= 1.4.2)
   byebug
   cancancan
